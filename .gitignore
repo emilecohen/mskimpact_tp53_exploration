@@ -3,3 +3,6 @@
 
 # Virtual Studio Code files
 .vscode
+
+# Mac DS files
+.DS_store
