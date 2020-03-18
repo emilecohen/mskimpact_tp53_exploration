@@ -35,7 +35,7 @@ matplotlib.rcParams['figure.dpi'] = 100
 matplotlib.rcParams['figure.figsize'] = (6, 6)
 
 # set the matplotlib figures style
-sns.set()
+sns.set_style("whitegrid", {'grid.color': '.95'})
 
 print(' done!')
 

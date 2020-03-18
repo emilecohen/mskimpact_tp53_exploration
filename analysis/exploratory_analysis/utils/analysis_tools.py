@@ -53,6 +53,16 @@ suffix = \
 The first functions allow to filter the master_file.
 '''
 
+def filter_general(master: pd.DataFrame, column: str, items = list):
+    '''
+    This filter allows to select samples with desired items in the desired column
+    Arguments:
+        - column: string of the column name we want to filter on
+        - items: list of string we want to keep in our dataframe
+    '''  
+    return master[master[column].isin(items)]
+
+
 def filter_muts(master: pd.DataFrame, nb_muts: list):
     '''
     This filter allows to select samples with desired number of tp53 mutations

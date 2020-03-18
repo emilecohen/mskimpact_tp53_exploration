@@ -1,9 +1,20 @@
-from IPython.display import Markdown, display
-import pandas as pd
+from IPython.display import Markdown, display, display_html
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib
 import numpy as np
+import pandas as pd
+
+
+def display_side_by_side(*args):
+    '''
+    This function allows to display dataframes or series side by side in a jupyter notebook
+    '''
+    html_str=''
+    for df in args:
+        html_str+= '                ' + df.to_html()
+    display_html(html_str.replace('table','table style="display:inline"'),raw=True)
+
 
 def print_md(string, color=None):
     """
