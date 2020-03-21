@@ -159,7 +159,7 @@ def get_sstacked_plot(df, column, title, xlabel, ylabel,figsize=(10,3), ncol=1, 
    
 
 def get_mstacked_plot(df, title,legend,xlabel,ylabel, figsize = (15,10), *args, **kwargs):
-    sns.set_style("whitegrid", {'grid.color': '.95'})
+    sns.set_style("whitegrid", {'grid.color': '1'})
     labels = kwargs.get('labels', None)
     horiz = kwargs.get('horiz', None)
     vert = kwargs.get('vert', None)
