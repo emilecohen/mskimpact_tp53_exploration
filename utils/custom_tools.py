@@ -77,10 +77,12 @@ def get_groupby(df, column, output):
 
 # Basic plots
 
-def get_ploth(y, x, df, ylabel, xlabel, title,color="blue", figsize=(10,10), perc=False):
+def get_ploth(y, x, df, ylabel, xlabel, title,color=list(sns.color_palette("muted"))[0], figsize=(10,10), perc=False):
     sns.set_style("whitegrid", {'grid.color': '.95'})
     fig = plt.figure(figsize=figsize)
     ax = sns.barplot(y=y, x=x, data = df, color=color)
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
     ax.set_ylabel(ylabel)
     ax.set_xlabel(xlabel)
     ax.set_title(title, weight = 'bold')
@@ -95,7 +97,7 @@ def get_ploth(y, x, df, ylabel, xlabel, title,color="blue", figsize=(10,10), per
         # set individual bar lables using above list
         for i in ax.patches:
             # get_width pulls left or right; get_y pushes up or down
-            ax.text(i.get_width()+.3, i.get_y()+i.get_height()/2, \
+            ax.text(i.get_width()+.3, i.get_y()+i.get_height()/2 +0.1, \
                     str(round((i.get_width()/total)*100, 2))+'%', fontsize=8,
         color='black')
 
@@ -115,10 +117,12 @@ def add_labels(labels, vert=True, horiz=False):
             ax.text(rect.get_y() + height / 2, width + 5, label,
                 ha='center', va='bottom') 
             
-def get_plotv(y, x, df, ylabel, xlabel, title, color="blue", figsize=(10,10), perc=False):
+def get_plotv(y, x, df, ylabel, xlabel, title, color=list(sns.color_palette("muted"))[0], figsize=(10,10), perc=False):
     sns.set_style("whitegrid", {'grid.color': '.95'})
     fig = plt.figure(figsize=figsize)
     ax = sns.barplot(y=y, x=x, data = df, color=color)
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
     ax.set_ylabel(ylabel)
     ax.set_xlabel(xlabel)
     ax.set_title(title, weight = 'bold')
