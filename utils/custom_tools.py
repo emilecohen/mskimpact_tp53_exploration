@@ -101,7 +101,7 @@ def get_ploth(y, x, df, ylabel, xlabel, title,color=list(sns.color_palette("mute
                     str(round((i.get_width()/total)*100, 2))+'%', fontsize=8,
         color='black')
 
-    plt.show()
+    return fig, ax
     
 
 def add_labels(labels, vert=True, horiz=False):
@@ -142,7 +142,7 @@ def get_plotv(y, x, df, ylabel, xlabel, title, color=list(sns.color_palette("mut
                     str(round((i.get_height()/total)*100, 2))+'%', fontsize=8,
                         color='black')
 
-    plt.show()
+    return fig, ax
 
     
 def get_sstacked_plot(df, column, title, xlabel, ylabel,figsize=(10,3), ncol=1, disp=False):
@@ -159,7 +159,8 @@ def get_sstacked_plot(df, column, title, xlabel, ylabel,figsize=(10,3), ncol=1, 
     ax.spines['right'].set_visible(False)
     ax.set_xlabel(xlabel)
     ax.spines['top'].set_visible(False)
-    plt.show()
+    
+    return fig, ax
    
 
 def get_mstacked_plot(df, title,legend,xlabel,ylabel, figsize = (15,10), *args, **kwargs):
@@ -198,7 +199,7 @@ def get_mstacked_plot(df, title,legend,xlabel,ylabel, figsize = (15,10), *args, 
                 ax.text(5 , rect.get_y() + height/6 ,  str(label)+ '%',
                     ha='left', va='bottom') 
 
-    plt.show()
+    return fig, ax
 
 
 
