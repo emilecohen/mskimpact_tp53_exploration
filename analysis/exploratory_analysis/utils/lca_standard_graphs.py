@@ -48,7 +48,7 @@ def build_comparison_table(dfs,
 
 
 def plot_grouped_stackedbars(df, ix_categories, ix_entities_compared, norm='max', err_pos=None, err_neg=None,
-                             palette_def=('muted', 'deep', 'dark'), width=0.3, figsize=(8, 4), xaxis_label=''):
+                             palette_def=('muted', 'muted', 'muted'), width=0.3, figsize=(8, 4), xaxis_label=''):
     """ Grouped stacked-bars for both comparison and contribution analysis
 
     This plot groups bars, representing the total scores of different entities
