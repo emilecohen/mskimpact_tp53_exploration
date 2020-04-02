@@ -78,7 +78,7 @@ def filter_cn_state(master: pd.DataFrame, cn_states: list):
         - master: master_file with all samples
         - cn_states: list of cn_state we want to select
     '''
-    return master[master.cn_state.isin(cn_states)]
+    return master[master.tp53_cn_state.isin(cn_states)]
 
 
 '''
