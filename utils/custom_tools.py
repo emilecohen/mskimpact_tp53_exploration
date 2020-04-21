@@ -9,6 +9,8 @@ import pandas as pd
 #Preprocessing steps
 def load_clean_up_master(path):
     master = pd.read_pickle(path)
+    # We eliminate unmatched samples
+    master = master[master['Somatic_Status']!='Unmatched']
     #We eliminate samples with too low purity
     master_cutoff = master[master['purity'] > 0.20]
     master_cutoff.drop( master_cutoff[master_cutoff['tp53_group'] == '1_WILD_TYPE'][master_cutoff['purity'] <= 0.31].index , inplace=True)
