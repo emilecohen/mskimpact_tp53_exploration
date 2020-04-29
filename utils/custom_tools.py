@@ -12,8 +12,11 @@ def load_clean_up_master(path):
     # We eliminate unmatched samples
     master = master[master['Somatic_Status']!='Unmatched']
     #We eliminate samples with too low purity
-    master_cutoff = master[master['purity'] > 0.20]
-    master_cutoff.drop( master_cutoff[master_cutoff['tp53_group'] == '1_WILD_TYPE'][master_cutoff['purity'] <= 0.31].index , inplace=True)
+    samples_cutoff = list(master[master['purity'] > 0.20]['Tumor_Id'])
+    samples_na = list(master[master['purity'].isna()]['Tumor_Id'])
+    samples_cutoff = samples_cutoff + samples_na
+    master_cutoff = master[master.Tumor_Id.isin(samples_cutoff)]
+    master_cutoff.drop(master_cutoff[master_cutoff['tp53_group'] == '1_WILD_TYPE'][master_cutoff['purity'] <= 0.31].index , inplace=True)
     # we clean the 1_WILD_TYPE subgroup
     master_cutoff.drop(master_cutoff[master_cutoff['tp53_group']=='1_WILD_TYPE'][master_cutoff['tp53_cn_state']=='DIPLOID'][master_cutoff['tp53_vaf_1']>0.6].index, inplace=True)
     master_cutoff.drop(master_cutoff[master_cutoff['tp53_group']=='1_WILD_TYPE'][master_cutoff['tp53_residual_1']<0.5].index, inplace=True)
