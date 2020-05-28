@@ -5,6 +5,22 @@
 
 ## Repository structure
 
+- **`analysis/`**: folder to design and run the analysis, contains several sub-folders:
+    - `API_calls/`: this part contains scripts to reach diverse APIs.
+    - `dataframe_generation/`: this part aims to create our dataframes.
+    - `exploratory_analysis/`: this part contains all the cohort analysis.
+                - `cancer_analysis/`: this part focuses on computing cancer panels and sets of metrics.
+                - `metrics_analysis/`: this part focuses on computing metrics to compare several cancers.
+                - `wgd_study/`: this part focuses on detailing the split between WGD and NO WGD cohorts. 
+
+- **`data/`**: raw data and main processed data, processed data should be reproducible from raw data.
+
+- **`doc/`**: useful documentation, bibliography, slides for talks...
+
+- **`utils/`**: main scripts used across analysis.
+
+
+
 ## Working with this repository
 
 ### Clone the repository
