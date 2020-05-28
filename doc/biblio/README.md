@@ -18,3 +18,6 @@
 * Mutational processes shape the landscape of TP53 mutations in human cancer: https://doi.org/10.1038/s41588-018-0204-y
 
 * Integrated Analysis of TP53 Gene and Pathway Alterations in The Cancer Genome Atlas: https://doi.org/10.1016/j.celrep.2019.07.001
+
+* Phase and context shape the function of composite oncogenic mutations: https://doi.org/10.1038/s41586-020-2315-8
+  * Necessary to understand the prportion of TP53 Cis/Trans mutations
