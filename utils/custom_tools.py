@@ -4,23 +4,45 @@ import seaborn as sns
 import matplotlib
 import numpy as np
 import pandas as pd
+from itertools import cycle, islice
+
+
+# BELOW WE LIST ALL THE INFORMATION FOR THE PALETTE DEFINITIONS
+mc = list(islice(cycle(list(sns.color_palette("muted"))), None, 6))
+
+# Below are listed all the group lists we want to study
+group_list = ['0_HETLOSS', '1_WILD_TYPE', '>1muts', '>=1_cnLOH', '>=1_LOSS','HOMDEL']
+res_group_list = ['tp53_res', 'no_tp53_res', 'uncertain']
+loh_list = [True, False]
+bi_list = ['tp53_res', 'bi']
+state_list = ['bi', 'mono', 'cnloh_2WT', '2WT']
+
+# Below are listed the colors associated with the groups
+palette_list = [mc[5],mc[2],mc[3],mc[4],mc[0],mc[1]]
+res_palette_list = ['#2ECC71','#1E8449','#7F8C8D']
+loh_palette_list = ['#FF9900', '#146EB4']
+bi_palette_list = ['#2ECC71', '#1E8449']
+state_palette_list = ['#1E8449','#2ECC71','#98EDC3','#98BF64']
+
+# Below are listed all dictionnary palettes
+palette ={'>=1_LOSS':mc[0], 'HOMDEL':mc[1], '1_WILD_TYPE':mc[2], '>1muts':mc[3], '>=1_cnLOH':mc[4], '0_HETLOSS':mc[5]}
+palette_res = {'tp53_res':'#2ECC71','no_tp53_res':'#1E8449',  'uncertain':'#7F8C8D'}
+palette_loh = {True: '#FF9900' , False: '#146EB4'}
+palette_bi = {'tp53_res':'#2ECC71', 'bi':'#1E8449'}
+palette_state = {'bi':'#1E8449', 'mono':'#2ECC71', 'cnloh_2WT': '#98EDC3', '2WT': '#98BF64'}
+
+
 
 
 #Preprocessing steps
-def load_clean_up_master(path):
-    master = pd.read_pickle(path)
-    # We eliminate unmatched samples
-    master = master[master['Somatic_Status']!='Unmatched']
-    #We eliminate samples with too low purity
-    samples_cutoff = list(master[master['purity'] > 0.20]['Tumor_Id'])
-    samples_na = list(master[master['purity'].isna()]['Tumor_Id'])
-    samples_cutoff = samples_cutoff + samples_na
-    master_cutoff = master[master.Tumor_Id.isin(samples_cutoff)]
-    master_cutoff.drop(master_cutoff[master_cutoff['tp53_group'] == '1_WILD_TYPE'][master_cutoff['purity'] <= 0.31].index , inplace=True)
-    # we clean the 1_WILD_TYPE subgroup
+# The following function allows to filter the non_WGD cohort, the 1_WT subgroup
+def non_wgd_load_and_cut(path):
+    master_no_wgd = pd.read_pickle(path)
+    master_cutoff = master_no_wgd
+    master_cutoff.drop(master_cutoff[master_cutoff['tp53_group'] == '1_WILD_TYPE'][master_cutoff['purity'] <= 0.3][master_cutoff['tp53_vaf_1'] <= 0.15].index , inplace=True)
     master_cutoff.drop(master_cutoff[master_cutoff['tp53_group']=='1_WILD_TYPE'][master_cutoff['tp53_cn_state']=='DIPLOID'][master_cutoff['tp53_vaf_1']>0.6].index, inplace=True)
-    master_cutoff.drop(master_cutoff[master_cutoff['tp53_group']=='1_WILD_TYPE'][master_cutoff['tp53_residual_1']<0.5].index, inplace=True)
-    
+    master_cutoff.drop(master_cutoff[master_cutoff['tp53_group']=='1_WILD_TYPE'][master_cutoff['tp53_res_1']<0.5].index, inplace=True)
+
     return master_cutoff
 
 def display_side_by_side(*args):
