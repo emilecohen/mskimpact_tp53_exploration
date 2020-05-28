@@ -16,3 +16,6 @@ Plot of Genome Instability metrics across several cancers, for WGD  and Non-WGD 
 
 - **`cancer_utils.py`**  
 This Python script encapsulates functions used in *`cancer_panel.ipynb`* to plot metrics
+
+
+### List of all the folders
