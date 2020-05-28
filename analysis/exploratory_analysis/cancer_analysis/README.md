@@ -1,15 +1,15 @@
-# Description
+# Cancer Analysis
+
+In this section, we gather notebooks to compute cancer comparisons and their output files.
 
 ### List of all the notebooks
 
-- **`basic_analysis.ipynb`**  
-First look at the final data `data/processed/annotated_final_IMPACT_mutations_20181105.txt`. This notebook focuses on the analysis of the dataset feature per feature.
+- **`cancer_panel.ipynb`**  
+This notebook aims to compute cancer panel summarizing cohort size, tp53 information and Genome Instability outputs. This script is used fo Non-WGD cohort subgroups and files are stored in [`cancer_summaries_no_wgd`](./cancer_summaries_no_wgd).
 
-- **`coding_mutations_analysis.ipynb`**  
-Further analysis of the final dataset on the coding mutations.
+- **`interpretation`**  
 
-- **`comparison_between_variant_annotation_databases.ipynb`**  
-This notebook is directly linked to [`doc/biblio/variant_annotation_databases.md`](../../doc/biblio/variant_annotation_databases.md) which compares and describes different variant annotation databases. The aim of this notebook is to compare the annotations of some of the databases studied in the markdown with OncoKB annotations.
 
-- **`oncokb_annotations_analysis.ipynb`**  
-This notebook studies the OncoKB annotations added with oncokb-annotator.
+- **`GI_pancancer_plot`**  
+
+- **`cancer_utils.py`**  
