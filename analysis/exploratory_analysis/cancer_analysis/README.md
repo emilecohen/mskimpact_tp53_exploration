@@ -19,3 +19,8 @@ This Python script encapsulates functions used in *`cancer_panel.ipynb`* to plot
 
 
 ### List of all the folders
+- **`cancer_summaries_no_wgd`** 
+- **`cancer_summaries_wgd`** 
+- **`cancer_summaries`** 
+- **`final_panels`** 
+- **`gi_pancancer`** 
