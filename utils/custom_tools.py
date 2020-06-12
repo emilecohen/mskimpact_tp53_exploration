@@ -9,6 +9,8 @@ from itertools import cycle, islice
 
 # BELOW WE LIST ALL THE INFORMATION FOR THE PALETTE DEFINITIONS
 mc = list(islice(cycle(list(sns.color_palette("muted"))), None, 6))
+acc = list(sns.color_palette("Accent"))
+tab10 = list(sns.color_palette("tab10"))
 
 # Below are listed all the group lists we want to study
 group_list = ['0_HETLOSS', '1_WILD_TYPE', '>1muts', '>=1_cnLOH', '>=1_LOSS','HOMDEL']
@@ -16,6 +18,7 @@ res_group_list = ['tp53_res', 'no_tp53_res', 'uncertain']
 loh_list = [True, False]
 bi_list = ['tp53_res', 'bi']
 state_list = ['bi', 'mono', 'cnloh_2WT', '2WT']
+mutation_list = ['in_frame','truncated', 'missense', '248', '273', '175', 'hotspot']
 
 # Below are listed the colors associated with the groups
 palette_list = [mc[5],mc[2],mc[3],mc[4],mc[0],mc[1]]
@@ -23,6 +26,7 @@ res_palette_list = ['#2ECC71','#1E8449','#7F8C8D']
 loh_palette_list = ['#FF9900', '#146EB4']
 bi_palette_list = ['#2ECC71', '#1E8449']
 state_palette_list = ['#1E8449','#2ECC71','#98EDC3','#98BF64']
+mutation_palette_lits = acc[:7]
 
 # Below are listed all dictionnary palettes
 palette ={'>=1_LOSS':mc[0], 'HOMDEL':mc[1], '1_WILD_TYPE':mc[2], '>1muts':mc[3], '>=1_cnLOH':mc[4], '0_HETLOSS':mc[5]}
@@ -30,8 +34,26 @@ palette_res = {'tp53_res':'#2ECC71','no_tp53_res':'#1E8449',  'uncertain':'#7F8C
 palette_loh = {True: '#FF9900' , False: '#146EB4'}
 palette_bi = {'tp53_res':'#2ECC71', 'bi':'#1E8449'}
 palette_state = {'bi':'#1E8449', 'mono':'#2ECC71', 'cnloh_2WT': '#98EDC3', '2WT': '#98BF64'}
+mutation_palette = {'in_frame':acc[0],'truncated':acc[1], 'missense':acc[2], '248':acc[4], '273':acc[5], '175':acc[6], 'hotspot':acc[7]}
+
+################################################################################################################################
 
 
+def style(ax1):
+    for i, artist in enumerate(ax1.artists):
+        # Set the linecolor on the artist to the facecolor, and set the facecolor to None
+        col = artist.get_facecolor()
+        artist.set_edgecolor(col)
+        artist.set_facecolor('None')
+
+        # Each box has 6 associated Line2D objects (to make the whiskers, fliers, etc.)
+        # Loop over them here, and use the same colour as above
+        for j in range(i * 6, i * 6 + 6):
+            line = ax1.lines[j]
+            if j % 6 == 4: line.set_color('black')
+            else: line.set_color(col)
+            line.set_mfc('None')
+            line.set_mec('None')
 
 
 #Preprocessing steps
