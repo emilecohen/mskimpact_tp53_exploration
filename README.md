@@ -45,8 +45,21 @@ We assume you have conda installed on your computer, otherwise please see https:
 To create the conda-env, please run the following command:
 ```bash
 # create the conda-env and install the appropriate libraries
-$ conda env create --name mskimpact_env --file requirements.yml
+$ conda env create --name mskimpact_env --file requirements.txt
 ```
+
+Two important packages to add after having activated the conda environment:
+```bash
+$ pip install ptitprince
+# Nbextensions is an extension tool for jupyter notebook that allows to have interesting tools
+$ pip install jupyter_contrib_nbextentions
+$ jupyer contrib nbextension install --sys-prefix
+```
+
+I recommend installing the following extensions to your notebook (go in **Nbextensions** tab in jupyter HomePage):
+* Table of Contents (very very useful)
+* Variable Inspector
+* Autopep8
 
 Some useful command lines to work with this conda-env:
 ```bash
