@@ -1,6 +1,16 @@
 # mskimpact_tp53_exploration
 **Exploratory Analysis of the MSK IMPACT Cohort**
 
+This repository gathers all coding material used in my analysis of TP53 Allelic State in MSK-Impact Cohort. The main objective was to question TP53 Allelic State (Bi-Allelic / Mono-Allelic) in a Pan-Cancer Study and see the differences across cancer types. 
+
+We learnt the following points:
+
+- TP53 Allelic State has not a uniform representation through all cancer types
+- We observe a recurrent pattern of Genome Instability change through a majority of cancer types
+    - Bi-allelic samples are more genomically unstable than Mono-allelic, and have a worse Survival
+    - Some outliers like Glioma, Melanoma, Pancreatic Cancer
+- In WGD State, the association between TP53 mutant and WGD is driven by Bi-Allelic TP53
+
 ***
 
 ## Repository structure
