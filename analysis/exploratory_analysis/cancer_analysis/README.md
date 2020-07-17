@@ -22,10 +22,7 @@ This Python script encapsulates functions used in *`cancer_panel.ipynb`* to plot
 We store here all the cancer panels for non WGD cohort, those are created in [`cancer_panel.ipynb`](./cancer_panel.ipynb)
 
 - **`cancer_summaries_wgd`** 
-WORK IN PROGRESS
 We store here all the cancer panels for WGD cohort.
-
-- **`cancer_summaries`** 
 
 - **`final_panels`** 
 We store the final panels, aggregation of panels stored in [`cancer_summaries_no_wgd`](./cancer_summaries_no_wgd) and [`cancer_summaries_wgd`](./cancer_summaries_wgd).
