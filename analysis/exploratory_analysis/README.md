@@ -25,20 +25,21 @@ In this folder you will find notebooks used to compute metric panels ie panels t
     * **metrics_summaries_wgd**
   
 
-* **cancer_exploration**
+* **cancer_exploration** - 
 In this folder, you will find specific cancer explorations. You have 2 cancer categories:
   * **textbook_cases**: Cancers that show the best signal
   * **outliers**: Cancers that show an outlying signal
 
 
+* **utils** - 
+Gathers usufeul functions for the folder
+
 ## Notebooks
 
 * `data_clean_up.ipynb`: Determination of the right purity threshold to cut Non-WGD Cohort (this cut is done in **dataframe_generation** folder)
 * `group_exploration.ipynb`: creation of the subgroups and general investigations
-* `metrics_exploration.ipynb`: 
-* ``
-* ``
-* ``
-* ``
-* ``
-* ``
+* `metrics_exploration.ipynb`: First pass on different metrics
+* `pair_analysis.ipynb`: Beginning of the pair analysis (Cross cohorts)
+* `tp53_loss_size_comp.ipynb`: Event Size comparison between 0_HETLOSS and >=1_LOSS subgroups
+* `tp53_mut_loh_status`: Gathers all plots about TP53 Mutation/LOH Status
+
